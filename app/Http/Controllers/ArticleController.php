@@ -19,14 +19,24 @@ class ArticleController extends Controller
     }
 
     public function store(Request $request)
-    {
+    {   
+        // $request is an array {"title":"ein","body":"Heuter ist 2018 09 30"}
         $article = Article::create($request->all());
 
         return response()->json($article, 201);
+        
     }
 
     public function update(Request $request, Article $article)
     {
+        /**
+        * Update the specified user.
+        *
+        * @param  Request  $request
+        * @param  string  $article = id
+        * @return Response
+        */
+
         $article->update($request->all());
 
         return response()->json($article, 200);
